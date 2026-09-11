@@ -10,7 +10,7 @@
  *   (mientras no se borre el volumen de Postgres)
  *
  * Requisitos previos: Docker y Docker Compose instalados.
- * Como correr esta practica: ver README.md
+ * Como correr esta practica: ver README.md del archivo
  */
 
 import express from "express";
