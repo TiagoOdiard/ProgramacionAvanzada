@@ -76,14 +76,23 @@ export class PaymentsService implements OnModuleInit {
     switch (event.type) {
       case 'charge.succeeded': {
         const charge = event.data.object as Stripe.Charge;
+
+        // Extraer el orderId guardado en la metadata de la transacción
         const orderId = charge.metadata?.orderId;
-        this.logger.log(
-          `[charge.succeeded] Payment received for orderId: ${orderId}`,
-        );
+
+        console.log(' PAGO ACREDITADO CON ÉXITO');
+        console.log(` Order ID: ${orderId}`);
         break;
       }
+
+      // Opcional: puedes dejar payment_intent.succeeded si también quieres capturarlo
+      case 'payment_intent.succeeded': {
+        console.log('PaymentIntent exitoso recibido');
+        break;
+      }
+
       default:
-        this.logger.log(`Unhandled event type: ${event.type}`);
+        console.log(`Evento no manejado: ${event.type}`);
     }
 
     return { received: true };
