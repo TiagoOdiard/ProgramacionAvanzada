@@ -1,0 +1,13 @@
+# Archivos de entorno
+.env
+*.env
+!.env.template
+
+# Dependencias y construcciones
+node_modules/
+dist/
+/coverage
+
+# Logs y SO
+*.log
+.DS_Store
